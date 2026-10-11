@@ -1,7 +1,6 @@
 const CAL = "https://calendly.com/tinonyazika/strategic-call-w-tino?month=2026-10";
 const LOOM = "https://www.loom.com/share/2bde08e064e444d79cfe3b0498447a8a";
-const LOOM_EMBED =
-  "https://www.loom.com/embed/2bde08e064e444d79cfe3b0498447a8a";
+const LOOM_EMBED = "https://www.loom.com/embed/2bde08e064e444d79cfe3b0498447a8a";
 
 const ext = { target: "_blank", rel: "noopener noreferrer" };
 const btn =
@@ -17,8 +16,10 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto mt-14 max-w-5xl text-center">
-        <h1 className="text-4xl font-normal leading-tight md:text-6xl">
-          Work with me to turn your social media into a consistent source of{" "}
+        <h1 className="text-4xl font-normal md:text-6xl">
+          Work with me to turn your
+          <br />
+          social media into a consistent source of{" "}
           <em className="text-primary">attention, authority &amp; leads.</em>
         </h1>
         <p className="mx-auto mt-6 max-w-[620px] text-lg italic text-secondary-foreground/80">

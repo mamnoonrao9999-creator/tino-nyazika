@@ -39,7 +39,7 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -130,7 +130,60 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+
+  /* ── Tight display typography for every heading site-wide ── */
+  h1 {
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  h2 {
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
 }
 
 html { scroll-behavior: smooth; }
 .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.18em] text-primary; }
+
+/* ── Soft blue thin scrollbar — faint by default, blooms on hover ── */
+.calendly-scroll {
+  scrollbar-width: thin;                        /* Firefox */
+  scrollbar-color: color-mix(in oklch, var(--primary) 25%, transparent) transparent;
+  scrollbar-gutter: stable;
+  transition: scrollbar-color 300ms ease;       /* Firefox */
+}
+
+.calendly-scroll::-webkit-scrollbar {           /* Chrome / Edge / Safari */
+  width: 6px;
+}
+
+.calendly-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.calendly-scroll::-webkit-scrollbar-thumb {
+  /* very light blue at rest */
+  background-color: color-mix(in oklch, var(--primary) 25%, transparent);
+  border-radius: 9999px;
+  transition: background-color 300ms ease;
+}
+
+/* When the mouse is anywhere over the Calendly card, bloom to full soft blue */
+.calendly-wrap:hover .calendly-scroll {
+  scrollbar-color: var(--primary) transparent;  /* Firefox */
+}
+
+.calendly-wrap:hover .calendly-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+/* Slightly deeper blue when the user actually grabs the thumb */
+.calendly-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in oklch, var(--primary) 85%, black);
+}
